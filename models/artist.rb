@@ -45,9 +45,9 @@ attr_reader :id
     SqlRunner.run(sql, values)
   end
 
-  def self.find()
+  def self.find(id)
     sql = "SELECT * FROM artists WHERE id = $1"
-    values = [@id]
+    values = [id]
     result = SqlRunner.run(sql, values)
     artist_hash = result[0]
     artist = Album.new(artist_hash)
